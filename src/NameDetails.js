@@ -1,5 +1,19 @@
 import React, { useRef } from "react";
 
+// Changing from Class Components to Function Components
+
+/*
+
+function NameDetails() {
+    return(
+        <>
+            
+        </>
+    )
+}
+
+*/
+
 class NameDetails extends React.Component {
     constructor(props){
         super();
