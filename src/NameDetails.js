@@ -1,39 +1,45 @@
 import React, { useRef } from "react";
+import { useState } from "react";
 
 // Changing from Class Components to Function Components
 
-/*
+
     
 function NameDetails(props) {
 
     const [names, setNames] = useState([]);
-    const [buttonState, setButtonState] = useState(false)
+    const [buttonState, setButtonState] = useState(true)
     const nameRef = useRef();
 
     function getNameDetails() {
         fetch('https://api.nationalize.io?name='+nameRef.current.value)
           .then(res => res.json())
-          .then((json) => setNames({ names: json.country }));
+          .then((json) => setNames(json.country));
       }
 
 
-    const setButtonState = (e) => 
+    const callsetButtonState = (e) => 
     {
         if (e.target.value.length >= 3)
         {
-            buttonState = true;
+            setButtonState(false)
         }
         else
         {
-            buttonState = false;
+            setButtonState(true)
         }
 
     }
 
+    const imgStyle = {
+        position: 'relative' ,
+        top: '5px'
+    }
+
     return(
         <>
-            <input type="text" placeholder="Insert your name here" onChange={setButtonState} ref={nameRef}></input>
-            <button disable:{buttonState}>I want to know everything about my Name</button>
+            <input data-testid="nameInput" type="text" placeholder="Insert your name here" onChange={callsetButtonState} ref={nameRef}></input>
+            <button data-testid="getInfoButton" disabled={buttonState} onClick={getNameDetails}>I want to know everything about my Name</button>
             <ul>
                 {names.map((item) => {
                     const country = 'https://www.countryflags.io/'+item.country_id+'/shiny/64.png'
@@ -41,16 +47,17 @@ function NameDetails(props) {
                     return <li>
                         There are %{roundedProb} of chances that your name comes from {item.country_id}
                         <img src={country} alt="Flag" width="25" height="25" style={imgStyle}></img>
-                        </li>
-                })}
+                        </li>})}
             </ul>
-        </>
-    )
+        </>    
+        )
 }
 
-*/
+export default NameDetails;
 
-class NameDetails extends React.Component {
+
+
+/* class NameDetails extends React.Component {
     constructor(props){
         super();
         this.nameRef = React.createRef();
@@ -111,4 +118,4 @@ class NameDetails extends React.Component {
     }
 }
 
-export default NameDetails;
+export default NameDetails; */
