@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useState } from "react";
 
-// Changing from Class Components to Function Components
+// Changing from Class Component to Function Component
 
 
     
