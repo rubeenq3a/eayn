@@ -1,4 +1,4 @@
-import NameDetails from "./NameDetails";
+import NameDetails from "./Components/NameDetails/NameDetails";
 
 
 
